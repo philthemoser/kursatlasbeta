@@ -151,13 +151,13 @@ button.selected {
     }
 }
 
-.language-selection {
+.translation-selection {
     position: absolute;
     top: 20px;
     right: 20px;
 }
 
-.language-button {
+.translation-button {
     margin: 0 5px;
     padding: 5px 10px;
     background-color: #333;
@@ -167,7 +167,7 @@ button.selected {
 }
 
 /* Style for selected language button */
-.language-button.selected {
+.translation-button.selected {
     background-color: #c30f08;
 }
 
