@@ -136,7 +136,7 @@ const translation = {
 let currentTranslation = 'de';
 
 // Function to update UI based on selected language
-function updatetTranslation() {
+function updateTranslation() {
     document.title = translation[currentTranslation].title;
     document.querySelector('h1').textContent = translation[currentTranslation].title;
     document.querySelector('.description p').textContent = translation[currentTranslation].description;
