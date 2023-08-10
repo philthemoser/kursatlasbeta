@@ -104,8 +104,8 @@ function displayCourses(courses) {
         coursesContainer.appendChild(courseDiv);
     });
 
-// Language data
-const languages = {
+// Translation data
+const translation = {
     en: {
         title: 'Course Atlas for Pre-Departure Preparation',
         description: 'Filter and find the perfect training courses that match your preferences. Select categories, language, and type to narrow down your selection.',
@@ -133,29 +133,29 @@ const languages = {
 };
 
 // Default language
-let currentLanguage = 'en';
+let currentTranslation = 'en';
 
 // Function to update UI based on selected language
-function updateLanguage() {
-    document.title = languages[currentLanguage].title;
-    document.querySelector('h1').textContent = languages[currentLanguage].title;
-    document.querySelector('.description p').textContent = languages[currentLanguage].description;
-    document.querySelectorAll('.category-button legend').forEach(legend => legend.textContent = languages[currentLanguage].categories);
-    document.querySelectorAll('.language-button legend').forEach(legend => legend.textContent = languages[currentLanguage].languages);
-    document.querySelectorAll('.type-button legend').forEach(legend => legend.textContent = languages[currentLanguage].types);
-    document.getElementById('clear-button').textContent = languages[currentLanguage].resetFilters;
+function updatetTranslation() {
+    document.title = translation[currentTranslation].title;
+    document.querySelector('h1').textContent = translation[currentTranslation].title;
+    document.querySelector('.description p').textContent = translation[currentTranslation].description;
+    document.querySelectorAll('.category-button legend').forEach(legend => legend.textContent = translation[currentTranslation].categories);
+    document.querySelectorAll('.language-button legend').forEach(legend => legend.textContent = translation[currentTranslation].languages);
+    document.querySelectorAll('.type-button legend').forEach(legend => legend.textContent = translation[currentTranslation].types);
+    document.getElementById('clear-button').textContent = translation[currentTranslation].resetFilters;
 }
 
 // Event listeners for language buttons
-document.querySelectorAll('.language-button').forEach(button => {
+document.querySelectorAll('.translation-button').forEach(button => {
     button.addEventListener('click', () => {
-        currentLanguage = button.getAttribute('data-lang');
-        updateLanguage();
+        currentTranslation = button.getAttribute('data-lang');
+        updateTranslation();
     });
 });
 
 // Initialize UI with default language
-updateLanguage();
+updateTranslation();
 
 }
 
