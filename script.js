@@ -133,7 +133,7 @@ const translation = {
 };
 
 // Default language
-let currentTranslation = 'en';
+let currentTranslation = 'de';
 
 // Function to update UI based on selected language
 function updatetTranslation() {
