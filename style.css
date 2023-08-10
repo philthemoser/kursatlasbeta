@@ -150,3 +150,24 @@ button.selected {
         width: 100%;
     }
 }
+
+.language-selection {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.language-button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style for selected language button */
+.language-button.selected {
+    background-color: #c30f08;
+}
+
