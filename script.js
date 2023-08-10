@@ -104,6 +104,58 @@ function displayCourses(courses) {
         coursesContainer.appendChild(courseDiv);
     });
 
+// Language data
+const languages = {
+    en: {
+        title: 'Course Atlas for Pre-Departure Preparation',
+        description: 'Filter and find the perfect training courses that match your preferences. Select categories, language, and type to narrow down your selection.',
+        categories: 'Select Categories:',
+        languages: 'Select Language:',
+        types: 'Select Type:',
+        resetFilters: 'Reset All Filters',
+    },
+    es: {
+        title: 'Atlas de Cursos para la Preparación Antes del Viaje',
+        description: 'Filtre y encuentre los cursos de capacitación perfectos que se ajusten a sus preferencias. Seleccione categorías, idioma y tipo para reducir su selección.',
+        categories: 'Seleccionar Categorías:',
+        languages: 'Seleccionar Idioma:',
+        types: 'Seleccionar Tipo:',
+        resetFilters: 'Restablecer Todos los Filtros',
+    },
+    de: {
+        title: 'Kursatlas der Ausreisevorbereitung',
+        description: 'Filtern und finden Sie die perfekten Schulungskurse, die Ihren Vorlieben entsprechen. Wählen Sie Kategorien, Sprache und Typ aus, um Ihre Auswahl einzugrenzen.',
+        categories: 'Kategorien auswählen:',
+        languages: 'Sprache auswählen:',
+        types: 'Typ auswählen:',
+        resetFilters: 'Alle Filter zurücksetzen',
+    },
+};
+
+// Default language
+let currentLanguage = 'en';
+
+// Function to update UI based on selected language
+function updateLanguage() {
+    document.title = languages[currentLanguage].title;
+    document.querySelector('h1').textContent = languages[currentLanguage].title;
+    document.querySelector('.description p').textContent = languages[currentLanguage].description;
+    document.querySelectorAll('.category-button legend').forEach(legend => legend.textContent = languages[currentLanguage].categories);
+    document.querySelectorAll('.language-button legend').forEach(legend => legend.textContent = languages[currentLanguage].languages);
+    document.querySelectorAll('.type-button legend').forEach(legend => legend.textContent = languages[currentLanguage].types);
+    document.getElementById('clear-button').textContent = languages[currentLanguage].resetFilters;
+}
+
+// Event listeners for language buttons
+document.querySelectorAll('.language-button').forEach(button => {
+    button.addEventListener('click', () => {
+        currentLanguage = button.getAttribute('data-lang');
+        updateLanguage();
+    });
+});
+
+// Initialize UI with default language
+updateLanguage();
 
 }
 
