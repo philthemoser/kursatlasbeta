@@ -151,14 +151,10 @@ function updateTranslation() {
 
 // Function to update button and legend translations
 function updateButtonLegendTranslation() {
-    const categoryLegend = document.querySelector('.category-button legend');
-    const languageLegend = document.querySelector('.language-button legend');
-    const typeLegend = document.querySelector('.type-button legend');
-    
-    categoryLegend.textContent = translation[currentTranslation].categories;
-    languageLegend.textContent = translation[currentTranslation].languages;
-    typeLegend.textContent = translation[currentTranslation].types;
-    clearButton.textContent = translation[currentTranslation].resetFilters;
+    document.querySelectorAll('.category-button legend').forEach(legend => legend.textContent = translation[currentTranslation].categories);
+    document.querySelectorAll('.language-button legend').forEach(legend => legend.textContent = translation[currentTranslation].languages);
+    document.querySelectorAll('.type-button legend').forEach(legend => legend.textContent = translation[currentTranslation].types);
+    clearButton.textContent = translation[currentTranslation].resetFilters; // Update reset filter button text
 }
 
 // Event listeners for language buttons
@@ -171,5 +167,4 @@ document.querySelectorAll('.translation-button').forEach(button => {
 
 // Initialize UI with default language
 updateUI();
-
 
