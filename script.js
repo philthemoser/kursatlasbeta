@@ -147,12 +147,13 @@ function updateTranslation() {
 }
 
 // Event listeners for language buttons
-document.querySelectorAll('.translation-button').forEach(button => {
+languageButtons.forEach(button => {
     button.addEventListener('click', () => {
         currentTranslation = button.getAttribute('data-lang');
         updateTranslation();
     });
 });
+
 
 // Initialize UI with default language
 updateTranslation();
