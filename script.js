@@ -103,6 +103,7 @@ function displayCourses(courses) {
         courseDiv.textContent = course.name;
         coursesContainer.appendChild(courseDiv);
     });
+}
 
 // Translation data
 const translation = {
@@ -136,58 +137,36 @@ const translation = {
 let currentTranslation = 'de';
 
 // Function to update UI based on selected language
+function updateUI() {
+    updateTranslation();
+    updateButtonLegendTranslation();
+}
+
+// Function to update translation based on selected language
 function updateTranslation() {
     document.title = translation[currentTranslation].title;
     document.querySelector('h1').textContent = translation[currentTranslation].title;
     document.querySelector('.description p').textContent = translation[currentTranslation].description;
+}
+
+// Function to update button and legend translations
+function updateButtonLegendTranslation() {
     document.querySelectorAll('.category-button legend').forEach(legend => legend.textContent = translation[currentTranslation].categories);
     document.querySelectorAll('.language-button legend').forEach(legend => legend.textContent = translation[currentTranslation].languages);
     document.querySelectorAll('.type-button legend').forEach(legend => legend.textContent = translation[currentTranslation].types);
     document.getElementById('clear-button').textContent = translation[currentTranslation].resetFilters;
 }
 
-    // Translation data for buttons and legends
-const buttonLegendTranslation = {
-    en: {
-        categories: 'Select Categories:',
-        languages: 'Select Language:',
-        types: 'Select Type:',
-        resetFilters: 'Reset All Filters',
-    },
-    es: {
-        categories: 'Seleccionar Categorías:',
-        languages: 'Seleccionar Idioma:',
-        types: 'Seleccionar Tipo:',
-        resetFilters: 'Restablecer Todos los Filtros',
-    },
-    de: {
-        categories: 'Kategorien auswählen:',
-        languages: 'Sprache auswählen:',
-        types: 'Typ auswählen:',
-        resetFilters: 'Alle Filter zurücksetzen',
-    },
-};
-
-// Function to update UI for buttons and legends based on selected language
-function updateButtonLegendTranslation() {
-    document.querySelectorAll('.category-button legend').forEach(legend => legend.textContent = buttonLegendTranslation[currentTranslation].categories);
-    document.querySelectorAll('.language-button legend').forEach(legend => legend.textContent = buttonLegendTranslation[currentTranslation].languages);
-    document.querySelectorAll('.type-button legend').forEach(legend => legend.textContent = buttonLegendTranslation[currentTranslation].types);
-    document.getElementById('clear-button').textContent = buttonLegendTranslation[currentTranslation].resetFilters;
-}
-
 // Event listeners for language buttons
 document.querySelectorAll('.translation-button').forEach(button => {
     button.addEventListener('click', () => {
         currentTranslation = button.getAttribute('data-lang');
-        updateTranslation();
-        updateButtonLegendTranslation(); // Update button and legend translations
+        updateUI();
     });
 });
 
 // Initialize UI with default language
-updateTranslation();
-updateButtonLegendTranslation(); // Initialize button and legend translations
+updateUI();
 
 
 
